@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD200F2EE97DBC5123348AE0 /* libPods-RSAAndSignatureDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00A562248C32A7414F645C48 /* libPods-RSAAndSignatureDemo.a */; };
 		FE5159EE1E026B6E00C880E1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5159ED1E026B6E00C880E1 /* main.m */; };
 		FE5159F11E026B6E00C880E1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5159F01E026B6E00C880E1 /* AppDelegate.m */; };
 		FE5159F41E026B6E00C880E1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FE5159F31E026B6E00C880E1 /* ViewController.m */; };
@@ -15,6 +16,13 @@
 		FE5159FC1E026B6E00C880E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE5159FA1E026B6E00C880E1 /* LaunchScreen.storyboard */; };
 		FE515A071E026B6E00C880E1 /* RSAAndSignatureDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515A061E026B6E00C880E1 /* RSAAndSignatureDemoTests.m */; };
 		FE515A121E026B6E00C880E1 /* RSAAndSignatureDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515A111E026B6E00C880E1 /* RSAAndSignatureDemoUITests.m */; };
+		FE515A261E026C7400C880E1 /* 文档 in Resources */ = {isa = PBXBuildFile; fileRef = FE515A1F1E026C7400C880E1 /* 文档 */; };
+		FE515A271E026C7400C880E1 /* RSAEncryptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515A211E026C7400C880E1 /* RSAEncryptor.m */; };
+		FE515A281E026C7400C880E1 /* UIARSAHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515A231E026C7400C880E1 /* UIARSAHandler.m */; };
+		FE515A291E026C7400C880E1 /* UIANSString.m in Sources */ = {isa = PBXBuildFile; fileRef = FE515A251E026C7400C880E1 /* UIANSString.m */; };
+		FE515A2B1E026FC200C880E1 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE515A2A1E026FC200C880E1 /* Security.framework */; };
+		FE515A2E1E026FE200C880E1 /* private_key.p12 in Resources */ = {isa = PBXBuildFile; fileRef = FE515A2C1E026FE200C880E1 /* private_key.p12 */; };
+		FE515A2F1E026FE200C880E1 /* public_key.der in Resources */ = {isa = PBXBuildFile; fileRef = FE515A2D1E026FE200C880E1 /* public_key.der */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +43,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00A562248C32A7414F645C48 /* libPods-RSAAndSignatureDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RSAAndSignatureDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2751635DD6CA9379ACCEC7F6 /* Pods-RSAAndSignatureDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSAAndSignatureDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RSAAndSignatureDemo/Pods-RSAAndSignatureDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		2FB9D826CCA2C75AECE90A0A /* Pods-RSAAndSignatureDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RSAAndSignatureDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RSAAndSignatureDemo/Pods-RSAAndSignatureDemo.release.xcconfig"; sourceTree = "<group>"; };
 		FE5159E91E026B6E00C880E1 /* RSAAndSignatureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSAAndSignatureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE5159ED1E026B6E00C880E1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FE5159EF1E026B6E00C880E1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -51,6 +62,16 @@
 		FE515A0D1E026B6E00C880E1 /* RSAAndSignatureDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSAAndSignatureDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE515A111E026B6E00C880E1 /* RSAAndSignatureDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RSAAndSignatureDemoUITests.m; sourceTree = "<group>"; };
 		FE515A131E026B6E00C880E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE515A1F1E026C7400C880E1 /* 文档 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "文档"; sourceTree = "<group>"; };
+		FE515A201E026C7400C880E1 /* RSAEncryptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSAEncryptor.h; sourceTree = "<group>"; };
+		FE515A211E026C7400C880E1 /* RSAEncryptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSAEncryptor.m; sourceTree = "<group>"; };
+		FE515A221E026C7400C880E1 /* UIARSAHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIARSAHandler.h; sourceTree = "<group>"; };
+		FE515A231E026C7400C880E1 /* UIARSAHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIARSAHandler.m; sourceTree = "<group>"; };
+		FE515A241E026C7400C880E1 /* UIANSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIANSString.h; sourceTree = "<group>"; };
+		FE515A251E026C7400C880E1 /* UIANSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIANSString.m; sourceTree = "<group>"; };
+		FE515A2A1E026FC200C880E1 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FE515A2C1E026FE200C880E1 /* private_key.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = private_key.p12; sourceTree = "<group>"; };
+		FE515A2D1E026FE200C880E1 /* public_key.der */ = {isa = PBXFileReference; lastKnownFileType = file; path = public_key.der; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE515A2B1E026FC200C880E1 /* Security.framework in Frameworks */,
+				FD200F2EE97DBC5123348AE0 /* libPods-RSAAndSignatureDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +101,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4720D293280E1002F8549229 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2751635DD6CA9379ACCEC7F6 /* Pods-RSAAndSignatureDemo.debug.xcconfig */,
+				2FB9D826CCA2C75AECE90A0A /* Pods-RSAAndSignatureDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8C8A09F87BFB34868ABCDC1F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE515A2A1E026FC200C880E1 /* Security.framework */,
+				00A562248C32A7414F645C48 /* libPods-RSAAndSignatureDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FE5159E01E026B6E00C880E1 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +126,8 @@
 				FE515A051E026B6E00C880E1 /* RSAAndSignatureDemoTests */,
 				FE515A101E026B6E00C880E1 /* RSAAndSignatureDemoUITests */,
 				FE5159EA1E026B6E00C880E1 /* Products */,
+				4720D293280E1002F8549229 /* Pods */,
+				8C8A09F87BFB34868ABCDC1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,6 +148,15 @@
 				FE5159F01E026B6E00C880E1 /* AppDelegate.m */,
 				FE5159F21E026B6E00C880E1 /* ViewController.h */,
 				FE5159F31E026B6E00C880E1 /* ViewController.m */,
+				FE515A2C1E026FE200C880E1 /* private_key.p12 */,
+				FE515A2D1E026FE200C880E1 /* public_key.der */,
+				FE515A1F1E026C7400C880E1 /* 文档 */,
+				FE515A201E026C7400C880E1 /* RSAEncryptor.h */,
+				FE515A211E026C7400C880E1 /* RSAEncryptor.m */,
+				FE515A221E026C7400C880E1 /* UIARSAHandler.h */,
+				FE515A231E026C7400C880E1 /* UIARSAHandler.m */,
+				FE515A241E026C7400C880E1 /* UIANSString.h */,
+				FE515A251E026C7400C880E1 /* UIANSString.m */,
 				FE5159F51E026B6E00C880E1 /* Main.storyboard */,
 				FE5159F81E026B6E00C880E1 /* Assets.xcassets */,
 				FE5159FA1E026B6E00C880E1 /* LaunchScreen.storyboard */,
@@ -147,9 +199,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FE515A161E026B6E00C880E1 /* Build configuration list for PBXNativeTarget "RSAAndSignatureDemo" */;
 			buildPhases = (
+				EC4D56383DF4109D583E509D /* 📦 Check Pods Manifest.lock */,
 				FE5159E51E026B6E00C880E1 /* Sources */,
 				FE5159E61E026B6E00C880E1 /* Frameworks */,
 				FE5159E71E026B6E00C880E1 /* Resources */,
+				F767BFBF4CEFDFB0D5F3B5D5 /* 📦 Embed Pods Frameworks */,
+				45F20B452B68A006B69C609A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,8 +298,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE515A261E026C7400C880E1 /* 文档 in Resources */,
 				FE5159FC1E026B6E00C880E1 /* LaunchScreen.storyboard in Resources */,
+				FE515A2F1E026FE200C880E1 /* public_key.der in Resources */,
 				FE5159F91E026B6E00C880E1 /* Assets.xcassets in Resources */,
+				FE515A2E1E026FE200C880E1 /* private_key.p12 in Resources */,
 				FE5159F71E026B6E00C880E1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,14 +323,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45F20B452B68A006B69C609A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSAAndSignatureDemo/Pods-RSAAndSignatureDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC4D56383DF4109D583E509D /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F767BFBF4CEFDFB0D5F3B5D5 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RSAAndSignatureDemo/Pods-RSAAndSignatureDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FE5159E51E026B6E00C880E1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FE5159F41E026B6E00C880E1 /* ViewController.m in Sources */,
+				FE515A291E026C7400C880E1 /* UIANSString.m in Sources */,
+				FE515A271E026C7400C880E1 /* RSAEncryptor.m in Sources */,
 				FE5159F11E026B6E00C880E1 /* AppDelegate.m in Sources */,
 				FE5159EE1E026B6E00C880E1 /* main.m in Sources */,
+				FE515A281E026C7400C880E1 /* UIARSAHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +522,7 @@
 		};
 		FE515A171E026B6E00C880E1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2751635DD6CA9379ACCEC7F6 /* Pods-RSAAndSignatureDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RSAAndSignatureDemo/Info.plist;
@@ -424,6 +534,7 @@
 		};
 		FE515A181E026B6E00C880E1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2FB9D826CCA2C75AECE90A0A /* Pods-RSAAndSignatureDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RSAAndSignatureDemo/Info.plist;
@@ -498,6 +609,7 @@
 				FE515A181E026B6E00C880E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE515A191E026B6E00C880E1 /* Build configuration list for PBXNativeTarget "RSAAndSignatureDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +618,7 @@
 				FE515A1B1E026B6E00C880E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FE515A1C1E026B6E00C880E1 /* Build configuration list for PBXNativeTarget "RSAAndSignatureDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +627,7 @@
 				FE515A1E1E026B6E00C880E1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

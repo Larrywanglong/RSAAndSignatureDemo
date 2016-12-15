@@ -1,0 +1,105 @@
+一、RSA
+
+   1、RSA算法是第一个能同时用于加密和数字签名的算法，也易于理解和操作。
+
+   2、RSA是被研究得最广泛的公钥算法，从提出到现今的三十多年里，经历了各种攻击的考验，逐渐为人们接受，普遍认为是目前最优秀的公钥方案之一
+
+   3、通常是先生成一对RSA密钥，
+
+     保密密钥：由用户保存
+
+     公开密钥：可对外公开
+
+     PS：为提高保密强度，RSA密钥一般推荐使用1024位
+
+   4、公钥与私钥的用途
+
+     1）公钥加密私钥解密是密送，保证消息即使公开也只有私钥持有者能读懂
+
+     举个栗子：
+
+       如果你想把某个消息秘密的发给某人，那你就可以用他的公钥加密。因为只有他知道他的私钥，所以这消息也就只有他本人能解开，于是你就达到了你的目的。
+
+
+     2）私钥加密公钥解密是签名，保证消息来源是私钥持有者
+
+     举个栗子：
+
+        但是如果你想发布一个公告，需要一个手段来证明这确实是你本人发的，而不是其他人冒名顶替的。那你可以在你的公告开头或者结尾附上一段用你的私钥加密的内容（例如说就是你公告正文的一段话），那所有其他人都可以用你的公钥来解密，看看解出来的内容是不是相符的。如果是的话，那就说明这公告确实是你发的---因为只有你的公钥才能解开你的私钥加密的内容，而其他人是拿不到你的私钥的。
+
+
+二、使用RSA做密送
+
+     1、生成公钥私钥。
+
+         1）打开终端，在终端中cd到你想保存公钥私钥的文件夹
+
+         2）生成模长为1024bit的私钥文件private_key.pem
+
+           openssl genrsa -out private_key.pem 1024
+
+         3）生成证书请求文件rsaCertReq.csr
+
+           openssl req -new -key private_key.pem -out rsaCerReq.csr
+
+           PS：这一步会提示输入国家、省份、mail等信息，可以根据实际情况填写，或者全部不用填写，直接全部敲回车.
+
+         4) 生成证书rsaCert.crt，并设置有效时间为1年
+
+           openssl x509 -req -days 3650 -in rsaCerReq.csr -signkey private_key.pem -out rsaCert.crt
+
+         5）生成供iOS使用的公钥文件public_key.der
+
+           openssl x509 -outform der -in rsaCert.crt -out public_key.der
+
+         6）生成供iOS使用的私钥文件private_key.p12
+
+           openssl pkcs12 -export -out private_key.p12 -inkey private_key.pem -in rsaCert.crt
+
+           注意：这一步会提示给私钥文件设置密码，直接输入想要设置密码即可，然后敲回车，然后再验证刚才设置的密码，再次输入密码，然后敲回车，完毕！
+
+           在解密时，private_key.p12文件需要和这里设置的密码配合使用，因此需要牢记此密码.
+
+     PS:正常来说公钥是加密使用，私钥是解密使用，我们做数据加密可以跟后台要公钥，然后将数据加密后给后台，让后台利用私钥解密，因为现在没有后台，此时我们自己生成公钥私钥
+
+     2、新建工程, 并导入Security.framework框架
+
+     3、导入.der和.p12格式的秘钥文件
+
+     4、将课件用用于加密、解密的RSAEncryptor类导入工程
+
+     5、测试加密、解密
+
+        1）首先先测试使用.der和.p12秘钥文件进行加密、解密, 在ViewController.m中进行测试, 代码如下:
+
+
+		 - (void)viewDidLoad {
+		    [super viewDidLoad];
+
+		    //原始数据
+		    NSString *originalString = @"这是一段将要使用'.der'文件加密的字符串!";
+
+		    //使用.der和.p12中的公钥私钥加密解密
+		    NSString *public_key_path = [[NSBundle mainBundle] pathForResource:@"public_key.der" ofType:nil];
+		    NSString *private_key_path = [[NSBundle mainBundle] pathForResource:@"private_key.p12" ofType:nil];
+
+		    NSString *encryptStr = [RSAEncryptor encryptString:originalString publicKeyWithContentsOfFile:public_key_path];
+		    NSLog(@"加密前:%@", originalString);
+		    NSLog(@"加密后:%@", encryptStr);
+		    NSLog(@"解密后:%@", [RSAEncryptor decryptString:encryptStr privateKeyWithContentsOfFile:private_key_path password:@"123456"]);
+
+     
+        2）下面接着测试使用秘钥字符串进行加密、解密, 那么秘钥字符串从哪里来? 可以来这里:http://web.chacuo.net/netrsakeypair, 这是一个在线生成RSA秘钥的网站, 生成公钥和秘钥后, 复制出来用于测试,代码如下：
+
+		    //原始数据
+		    NSString *originalString = @"这是一段将要使用'秘钥字符串'进行加密的字符串!";
+
+		    //使用字符串格式的公钥私钥加密解密
+		    NSString *encryptStr = [RSAEncryptor encryptString:originalString publicKey:@"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDTbZ6cNH9PgdF60aQKveLz3FTalyzHQwbp601y77SzmGHX3F5NoVUZbdK7UMdoCLK4FBziTewYD9DWvAErXZo9BFuI96bAop8wfl1VkZyyHTcznxNJFGSQd/B70/ExMgMBpEwkAAdyUqIjIdVGh1FQK/4acwS39YXwbS+IlHsPSQIDAQAB"];
+
+		    NSLog(@"加密前:%@", originalString);
+		    NSLog(@"加密后:%@", encryptStr);
+		    NSLog(@"解密后:%@", [RSAEncryptor decryptString:encryptStr privateKey:@"MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBANNtnpw0f0+B0XrRpAq94vPcVNqXLMdDBunrTXLvtLOYYdfcXk2hVRlt0rtQx2gIsrgUHOJN7BgP0Na8AStdmj0EW4j3psCinzB+XVWRnLIdNzOfE0kUZJB38HvT8TEyAwGkTCQAB3JSoiMh1UaHUVAr/hpzBLf1hfBtL4iUew9JAgMBAAECgYA1tGeQmAkqofga8XtwuxEWDoaDS9k0+EKeUoXGxzqoT/GyiihuIafjILFhoUA1ndf/yCQaG973sbTDhtfpMwqFNQq13+JAownslTjWgr7Hwf7qplYW92R7CU0v7wFfjqm1t/2FKU9JkHfaHfb7qqESMIbO/VMjER9o4tEx58uXDQJBAO0O4lnWDVjr1gN02cqvxPOtTY6DgFbQDeaAZF8obb6XqvCqGW/AVms3Bh8nVlUwdQ2K/xte8tHxjW9FtBQTLd8CQQDkUncO35gAqUF9Bhsdzrs7nO1J3VjLrM0ITrepqjqtVEvdXZc+1/UrkWVaIigWAXjQCVfmQzScdbznhYXPz5fXAkEAgB3KMRkhL4yNpmKRjhw+ih+ASeRCCSj6Sjfbhx4XaakYZmbXxnChg+JB+bZNz06YBFC5nLZM7y/n61o1f5/56wJBALw+ZVzE6ly5L34114uG04W9x0HcFgau7MiJphFjgUdAtd/H9xfgE4odMRPUD3q9Me9LlMYK6MiKpfm4c2+3dzcCQQC8y37NPgpNEkd9smMwPpSEjPW41aMlfcKvP4Da3z7G5bGlmuICrva9YDAiaAyDGGCK8LxC8K6HpKrFgYrXkRtt"]);
+
+
+
